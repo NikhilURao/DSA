@@ -5,6 +5,7 @@
  * 3.By constructor
  */
 package com.objects_and_class_in_java;
+import com.core.*;
 
 public class Student1 {
 	int id;
