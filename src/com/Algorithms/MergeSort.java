@@ -4,35 +4,42 @@ import java.util.Random;
 
 public class MergeSort {
 
-	static void Merge(int []arr,int start,int mid,int end) {
+	static void Merge(int []arr,int start,int mid,int end) 
+	{
 		int i=start;
 		int j=end;
 		int m=mid;
 		int [] temp = new int [j-i+1];
 		int k=0;
-		while (i<mid && m<=j) {
-			if (arr[i]<arr[m]) {
+		while (i<mid && m<=j) 
+		{
+			if (arr[i] < arr[m]) 
+			{
 				temp[k] = arr[i];
 				i++;
 				k++;
 			}
-			else {
+			else 
+			{
 				temp[k] = arr[m];
 				m++;
 				k++;
 			}
 		}
-		while (i<mid) {
+		while (i<mid) 
+		{
 			temp[k]=arr[i];
 			i++;
 			k++;
 		}
-		while (m<=j) {
+		while (m<=j) 
+		{
 			temp[k]=arr[m];
 			m++;
 			k++;
 		}
-		for(int l=0;l<temp.length-1;l++) {
+		for(int l=0;l<temp.length-1;l++) 
+		{
 		arr[start]=temp[l];	
 		start++;
 		}
