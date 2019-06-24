@@ -52,7 +52,7 @@ public class MyLinkedList_Functions {
 			Node current = this.head;
 			Node previous = null;
 			int i=0;
-			while(i <= k)
+			while(i < k && current.next != null )
 			{
 				previous = current;
 				current = current.next;

@@ -10,9 +10,24 @@ public class SortedLinkedList
 		{
 			this.head = new Node(data);
 		}
-		else
+		else if(this.head.data > data)
+ 		{
+				Node temp = new Node(data);
+				temp.next = this.head;
+				this.head = temp;
+		}
+		else 
 		{
+			Node temp = this.head;
 			
+			while (temp.next != null && temp.next.data < data )
+			{
+				temp = temp.next;
+			}
+			
+			Node n = new Node(data);
+			n.next = temp.next;
+			temp.next = n;
 		}
 	}
 	
@@ -31,7 +46,11 @@ public class SortedLinkedList
 		SortedLinkedList sl = new SortedLinkedList();
 		sl.SortInsert(10);
 		sl.SortInsert(5);
-		sl.SortInsert(15);
+		sl.SortInsert(4);
+		sl.SortInsert(3);
+		sl.SortInsert(2);
+		sl.SortInsert(5);
+		sl.SortInsert(7);
 		sl.print();
 
 	}
