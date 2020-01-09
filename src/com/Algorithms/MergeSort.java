@@ -19,8 +19,7 @@ public class MergeSort {
 				i++;
 				k++;
 			}
-			else 
-			{
+			else {
 				temp[k] = arr[m];
 				m++;
 				k++;
