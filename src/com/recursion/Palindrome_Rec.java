@@ -20,7 +20,7 @@ public class Palindrome_Rec {
 	input.close();
 	
 	int reversed_num = IsPalindrome(num,0);
-	//System.out.println(rev);
+	//System.out.println(rev);			
 	if (reversed_num == num) System.out.println("Given num is a Palindrome");
 	else System.out.println("Given num is not a Palindrome");
 	

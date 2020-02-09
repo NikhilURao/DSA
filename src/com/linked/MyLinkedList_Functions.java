@@ -30,9 +30,10 @@ public class MyLinkedList_Functions {
 		else 
 		{
 		Node lastnode = this.head;
-		while(lastnode.next !=null)
+		
+		while(lastnode.next != null)
 		{
-			lastnode = lastnode.next;
+			lastnode = lastnode.next; 
 		}
 		lastnode.next = new Node(data);
 		}
@@ -115,6 +116,15 @@ public class MyLinkedList_Functions {
 		}
 	}
 	
+	public static void main(String[] args) {
+		MyLinkedList_Functions ll_func = new MyLinkedList_Functions();
+		ll_func.InsertAtEnd(10);
+		ll_func.InsertAtEnd(20);
+		ll_func.InsertAtEnd(30);
+		ll_func.InsertAtEnd(40);
+		ll_func.InsertAtEnd(50);
+		ll_func.print();
+	}
 
 }
 
