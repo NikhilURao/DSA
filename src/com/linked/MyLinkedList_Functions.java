@@ -116,6 +116,18 @@ public class MyLinkedList_Functions {
 		}
 	}
 	
+	public int getLength()
+	{
+		Node temp = this.head;
+		int count = 0;
+		while (temp != null)
+		{
+			count++;
+			temp = temp.next;
+		}
+		return count;
+	}
+	
 	public static void main(String[] args) {
 		MyLinkedList_Functions ll_func = new MyLinkedList_Functions();
 		ll_func.InsertAtEnd(10);
@@ -124,6 +136,8 @@ public class MyLinkedList_Functions {
 		ll_func.InsertAtEnd(40);
 		ll_func.InsertAtEnd(50);
 		ll_func.print();
+		System.out.println();
+		System.out.println("Length : "+ll_func.getLength());
 	}
 
 }
