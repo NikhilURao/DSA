@@ -2,15 +2,40 @@ package com.stack;
 
 public class ArrayStack 
 {
-	int cap = 10;
+	int cap = 100;// Length of the array used to implement stack
 	int [] arr = new int [cap];
 	int top = 0;
+	
+	public int size()
+	{
+		return top;
+	}
+	
+	public boolean isEmpty()
+	{
+		if (top == 0)
+		{
+			return true;
+		}
+		
+		else 
+			return false;
+	}
+	
+	public int top()
+	{
+		if (isEmpty())
+		{
+			System.out.println("Empty");
+		}
+		return arr[top-1];
+	}
 
 	public void push(int data)
 	{
 		if (top == cap)
 		{
-			System.out.println("Stack Overflow");
+			System.out.println("Stack Overflow or Full Stack Expression");
 		}
 		else
 		{
@@ -19,11 +44,12 @@ public class ArrayStack
 		}
 	}
 	
+	
 	public int pop()
 	{
 		if (top == 0)
 		{
-			System.out.println("Stack Underflow");
+			System.out.println("Stack Underflow or Stack Empty Expression");
 			return 0;
 		}
 		else 
@@ -54,8 +80,13 @@ public class ArrayStack
 		as.push(44);
 		as.print();
 		System.out.println();
-		as.pop();
+		System.out.println(as.top);
+		System.out.println(as.top());
+		System.out.println(as.size());
+		System.out.println();
+		System.out.println(as.pop());
 		as.print();
+		/*
 		System.out.println();
 		as.pop();
 		as.print();
@@ -68,6 +99,7 @@ public class ArrayStack
 		System.out.println();
 		as.pop();
 		as.print();
+		*/
 
 	}
 

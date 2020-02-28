@@ -90,6 +90,13 @@ public class MergingLinkedListSorted {
 		{
 			temp.next=head2;
 		}
+		
+		Node ptr = temp;
+		while (ptr.next != null)
+		{
+			System.out.println(ptr.data+" ");
+			ptr = ptr.next;
+		}
 	}
 	
 	
@@ -125,8 +132,8 @@ public class MergingLinkedListSorted {
 		obj.Insert_LL2(16);
 		obj.Insert_LL2(11);
 		obj.print_LL2();
-		//obj.mergeLL();
-		//obj.mergeLLFast();
+		obj.mergeLL();
+		obj.mergeLLFast();
 		System.out.println();
 		obj.print_LL1();
 		

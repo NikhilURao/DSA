@@ -109,14 +109,20 @@ public class RemoveDuplicates
 		obj.Insert_LL(2);
 		obj.print();
 		System.out.println();
+		obj.RemoveDupsUnsorted();
+		obj.print();
+		System.out.println();
 		obj.Sorted();
 		System.out.println();
 		obj.print();
 		System.out.println();
-		//obj.RemoveDupsUnsorted();
 		obj.RemoveDupsSorted();
 		obj.print();
 		
+		int sum = 10;
+		System.out.println();
+		System.out.println(sum/10);
+		System.out.println(sum%10);
 
 	}
 

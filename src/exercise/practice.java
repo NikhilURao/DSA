@@ -26,6 +26,8 @@ public class practice {
 			return n*FactorialRec(n-1);
 		}
 	}
+	
+	
 
 	public static void main(String[] args) {
 		

@@ -5,6 +5,8 @@
  */
 package com.linked;
 
+import java.util.*;
+
 public class IntersectionPoint {
 	Node head1;
 	Node head2;
@@ -54,39 +56,120 @@ public class IntersectionPoint {
 		}
 	}
 	
-	public Node getIntersectionPoint()
+	public int getIntersectionPointUsingDiffNode()
 	{
 		Node temp1 = this.head1;
 		Node temp2 = this.head2;
+		int intersection_pt = 0;
+		int count1=0;
+		int count2=0;
+		int dif=0;
 		
-		while (temp1 != null)
+		while (temp1!=null)
 		{
-			while (temp2 != null)
+			temp1 = temp1.next;
+			count1++;
+		}
+		while (temp2!=null)
+		{
+			temp2 = temp2.next;
+			count2++;
+		}
+		
+		temp1 = this.head1;
+		temp2 = this.head2;
+		
+		if (count1 > count2)
+		{
+			 dif = count1-count2;
+			 int i=0;
+			 while (temp1!=null && i<dif)
+			 {
+				 temp1 = temp1.next;
+				 i++;
+			 }
+		}
+		else
+		{
+			dif = count2-count1;
+			int i=0;
+			while (temp2!=null && i<dif)
 			{
-				if (temp1.next == temp2.next)
-				{
-					return temp1.next;
-				}
 				temp2 = temp2.next;
+				i++;
 			}
+		}
+		
+		while (temp1 != null && temp2 != null)
+		{
+			if (temp1.next == temp2.next)
+			{
+				intersection_pt = temp1.next.data;
+				break;
+			}
+			
+			temp1 = temp1.next;
+			temp2 = temp2.next;
+		}
+		
+		return intersection_pt;
+		
+	}
+	
+	public int getIntersectionUsingHashSet()
+	{
+		HashSet<Node> hs = new HashSet<Node>();
+		Node temp1 = this.head1;
+		Node temp2 = this.head2;
+		int res = 0;
+		
+		while (temp2!=null)
+		{
+			hs.add(temp2);
+			temp2 = temp2.next;
+		}
+		
+		while (temp1.next!=null)
+		{
+			if (hs.contains(temp1))
+			{
+				res = temp1.data;
+			}
+			
 			temp1 = temp1.next;
 		}
-		return null;
+		
+		return res;
 	}
+	
+	
 	public static void main(String [] args) {
 		
 		IntersectionPoint ip = new IntersectionPoint();
+		/*
 		ip.createIntersectedLinkedList(10, 0);
 		ip.createIntersectedLinkedList(20, 0);
-		ip.createIntersectedLinkedList(30, 0);
+		ip.createIntersectedLinkedList(15, 0);
 		ip.createIntersectedLinkedList(40, 0);
-		ip.createIntersectedLinkedList(50, 15);
+		ip.createIntersectedLinkedList(35, 15);
+		*/
+		
+		ip.head1 = new Node (10);
+		ip.head1.next = new Node (6);
+		ip.head1.next.next = new Node (13);
+		ip.head1.next.next.next= new Node (34);
+		ip.head1.next.next.next.next = new Node (50);
+		ip.head2 = new Node(21);
+		ip.head2.next = new Node(32);
+		ip.head2.next.next = ip.head1.next.next.next;
+		
 		
 		ip.print1();
 		System.out.println();
 		ip.print2();
-		
-		ip.getIntersectionPoint();
+		System.out.println();
+		System.out.println(ip.getIntersectionPointUsingDiffNode());
+		System.out.println(ip.getIntersectionUsingHashSet());
 		
 
 	}

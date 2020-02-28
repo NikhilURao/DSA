@@ -30,7 +30,7 @@ public class ReverseLinkedList
 		{
 			Node ptr = this.head;
 			this.head = this.head.next;
-			ptr.next = null;
+			ptr.next = null;	
 			
 			if (temp == null)
 			{
@@ -69,7 +69,7 @@ public class ReverseLinkedList
 			return head;
 		}
 		else
-		{	System.out.println("111");
+		{	//System.out.println("111");
 			Node last = RevLL4(head.next);
 			head.next.next = head;
 			
@@ -118,6 +118,7 @@ public class ReverseLinkedList
 		ll.add(26);
 		ll.add(45);
 		ll.print();
+		/*
 		System.out.println();
 		ll.RevLL1();
 		System.out.println();
@@ -131,6 +132,7 @@ public class ReverseLinkedList
 		System.out.println();
 		ll.print();
 		System.out.println();
+		*/
 		ll.head = ll.RevLL4(ll.head);
 		System.out.println();
 		ll.print();

@@ -24,16 +24,18 @@ public class Add2LL {
 			sum = a+b+carry;
 			carry = sum/10;
 			res1 = sum%10;
-			System.out.println(a+" "+b+" "+sum+" "+carry+" "+res1);
+			//System.out.println(a+" "+b+" "+sum+" "+carry+" "+res1);
 			if (head==null)
 			{
 				head = new Node(res1);
 			}
 			else
 			{
+				
 				Node temp = new Node(res1);
 				temp.next = head;
 				head= temp;
+				
 			}
 
 			head1= (head1!=null)?head1.next:null;
@@ -117,16 +119,16 @@ public class Add2LL {
 		
 		Add2LL a = new Add2LL();
 		a.Insert_LL1(1);
-		a.Insert_LL1(0);
-		a.Insert_LL1(0);
-		a.Insert_LL1(0);
+		a.Insert_LL1(8);
+		//a.Insert_LL1(0);
+		//a.Insert_LL1(0);
 		
 		a.print1();
 		System.out.println();
 		
-		a.Insert_LL2(9);
-		a.Insert_LL2(9);
-		a.Insert_LL2(9);
+		a.Insert_LL2(0);
+		//a.Insert_LL2(9);
+		//a.Insert_LL2(9);
 		//a.Insert_LL2(9);
 		
 		a.print2();

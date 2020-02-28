@@ -28,6 +28,7 @@ public class LinkedStack
 		
 		if (this.head == null)
 		{
+			System.out.println("Linked List Empty or Stack Underflow Exception");
 			return 0;
 		}
 		else
@@ -38,6 +39,36 @@ public class LinkedStack
 			return temp.data;
 			
 		}
+	}
+	
+	public int top()
+	{
+		if (this.head == null)
+		{
+			System.out.println("Empty Linked List");
+		}
+		
+			return this.head.data;
+
+	}
+	
+	public int getLen()
+	{
+		int len = 0;
+		Node ptr  = this.head;
+		
+		if (this.head == null)
+		{
+			return 0;
+		}
+		
+		while (ptr.next != null)
+		{
+			ptr = ptr.next;
+			len++;
+		}
+		
+		return len+1;
 	}
 	
 	public void print()
@@ -58,22 +89,30 @@ public class LinkedStack
 		ls.push(44);
 		ls.push(98);
 		ls.print();
-		System.out.println(" ");
-		ls.pop();
-		System.out.println(" ");
+		System.out.println();
+		System.out.println(ls.top());
+		System.out.println(ls.getLen());
+		System.out.println(ls.pop());
 		ls.print();
-		System.out.println(" ");
-		ls.pop();
-		System.out.println(" ");
+		System.out.println();
+		System.out.println(ls.top());
+		System.out.println(ls.pop());
 		ls.print();
-		System.out.println(" ");
-		ls.pop();
-		System.out.println(" ");
+		System.out.println();
+		System.out.println(ls.getLen());
+		System.out.println(ls.pop());
 		ls.print();
-		System.out.println(" ");
-		ls.pop();
-		System.out.println(" ");
+		System.out.println();
+		System.out.println(ls.getLen());
+		System.out.println(ls.pop());
 		ls.print();
+		System.out.println(ls.getLen());
+		System.out.println(ls.pop());
+		System.out.println(ls.getLen());
+		
+
+		
+
 
 	}
 
