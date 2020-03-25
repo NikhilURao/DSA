@@ -23,16 +23,14 @@ public class Stack
 	public BTNode pop() throws EmptyStackException
 	{
 		if (this.head == null)
-		{
 			throw new EmptyStackException();
-		}
+		
 		else
 		{
 			StackNode temp = this.head;
 			this.head = this.head.next;
 			temp.next = null;
 			return temp.data;
-					
 		}
 	}
 	

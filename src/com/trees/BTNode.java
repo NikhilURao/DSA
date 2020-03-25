@@ -2,9 +2,9 @@ package com.trees;
 
 public class BTNode {
 	
-	int data;
-	BTNode left;
-	BTNode right;
+	public int data;
+	public BTNode left;
+	public BTNode right;
 
 	public BTNode(int data) {
 		

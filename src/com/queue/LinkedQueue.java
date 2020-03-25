@@ -66,6 +66,27 @@ public class LinkedQueue {
 		System.out.println();
 		System.out.println(lq.dequeue());
 		lq.printQueue();
+		System.out.println();
+		
+		int n=5;
+		
+		for (int i=1;i<=n;i++)
+		{
+			for (int j=1;j<=i;j++)
+			{
+				if (i==1||j==1||i==n||j==i)
+				{
+					System.out.print("*");
+				}
+				else 
+					System.out.print(" ");	
+			}
+			
+			
+
+		System.out.println();
+		}
+		
 		
 
 	}

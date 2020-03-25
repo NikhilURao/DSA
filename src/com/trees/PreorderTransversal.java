@@ -8,13 +8,15 @@ public class PreorderTransversal
 {
 	
 	public void PreorderTransverseRec(BTNode root)
-	{
+	{ 
 		if (root != null)
 		{
 			System.out.print(root.data+" ");
 			PreorderTransverseRec(root.left);
 			PreorderTransverseRec(root.right);
 		}	
+		else 
+			return;
 			
 	}
 	
@@ -56,6 +58,9 @@ public class PreorderTransversal
 		pot.PreorderTransverseRec(root);
 		System.out.println();
 		pot.PreorderTransverseIterative(root);
+		
+		Stack s = new Stack();
+		s.isEmpty();
 
 	}
 

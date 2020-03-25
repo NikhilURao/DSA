@@ -1,6 +1,7 @@
 package exercise;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class CarFuelRefills {
 	static int MinRefills(long x[], long n, long l) {
@@ -21,6 +22,7 @@ public class CarFuelRefills {
 	}
 
 	public static void main(String[] args) {
+		/*
 		Scanner ip = new Scanner(System.in);
 		long n = ip.nextLong();
 		long l = ip.nextLong();
@@ -31,6 +33,17 @@ public class CarFuelRefills {
 		}
 		
 		System.out.println(MinRefills(x, n, l));
+		*/
+		Stack<Integer> s = new Stack<>();
+		s.push(10);
+		s.push(21);
+		System.out.println(s.peek());
+		s.pop();
+		s.pop();
+		System.out.println(s.peek());
+		
+		
+		
 		
 
 	}
