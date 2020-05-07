@@ -1,6 +1,7 @@
 package com.Algorithms;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class MergeSort {
 
@@ -53,10 +54,11 @@ public class MergeSort {
 		}
 	}
 	public static void main(String[] args) {
-		int [] test = new int[15];
+		Scanner sc = new Scanner(System.in);
+		int [] test = new int[4];
 		Random ran = new Random();
 		for (int i=0;i<test.length;i++) {
-			test[i]=ran.nextInt(10);
+			test[i]=sc.nextInt();
 		}
 		System.out.println("Array before MergeSort : ");
 		for (int i=0;i<test.length;i++) {
