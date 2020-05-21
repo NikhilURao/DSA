@@ -1,3 +1,7 @@
+/*
+ * Bubble Sort is the simplest sorting algorithm that works by repeatedly
+ *  swapping the adjacent elements if they are in wrong order.
+ */
 package com.Algorithms;
 
 import java.util.Random;
@@ -19,7 +23,8 @@ public class Buble_Sort {
 		//Bubble Sort Logic
 		int temp=0;
 		boolean flag = true;
-		for (int i=0;i<test.length;i++) {
+		for (int i=0;i<test.length;i++) 
+		{
 			for(int j=0;j<test.length-1-i;j++) 
 			{
 				if(test[j]>test[j+1]) 

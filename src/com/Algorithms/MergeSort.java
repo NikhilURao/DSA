@@ -10,9 +10,9 @@ public class MergeSort {
 		int i=start;
 		int j=end;
 		int m=mid;
-		int [] temp = new int [j-i+1];
+		int [] temp = new int [j-i+1]; 
 		int k=0;
-		while (i<mid && m<=j) 
+		while (i<=mid && m<=j) 
 		{
 			if (arr[i] < arr[m]) 
 			{
@@ -54,12 +54,15 @@ public class MergeSort {
 		}
 	}
 	public static void main(String[] args) {
+		/*
 		Scanner sc = new Scanner(System.in);
-		int [] test = new int[4];
+		int [] test = new int[6];
 		Random ran = new Random();
 		for (int i=0;i<test.length;i++) {
 			test[i]=sc.nextInt();
 		}
+		*/
+		int [] test = {7,9,2,8,4};
 		System.out.println("Array before MergeSort : ");
 		for (int i=0;i<test.length;i++) {
 			System.out.print(test[i]);

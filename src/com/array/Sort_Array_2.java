@@ -30,7 +30,7 @@ public class Sort_Array_2 {
 		int end = j;
 		int temp[] = new int [j-i+1];
 		int k=0;
-		while (start<m && mid<=end) {
+		while (start<=m && mid<=end) {
 			
 			if(a[start] < a[mid]) {
 				temp[k] = a[start];
@@ -67,14 +67,14 @@ public static void main(String []args)
 	}
 */	
 	//int [] test = new int [10];
-	int [] test = {3,5,8,12,15,7,8,9,10,17,23,25};
+	int [] test = {7,9,2,8};
 	System.out.println("Before Sorting : ");
 	for (int i=0;i<test.length;i++) {
 		System.out.print(test[i]);
 		System.out.print(" ");
 	}
 	System.out.println(" ");
-	merge(0, 5, test.length-1, test);
+	merge(0,1, test.length-1, test);
 	
 	System.out.println("After Sorting : ");
 	for (int i =0;i<test.length;i++) {

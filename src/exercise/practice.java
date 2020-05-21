@@ -1,4 +1,7 @@
 package exercise;
+
+import java.util.HashMap;
+
 /*
  * n! = n*(n-1)*........*1
  */
@@ -32,11 +35,14 @@ public class practice {
 	public static void main(String[] args) {
 		
 		practice p = new practice();
-		System.out.println(p.FactorialIterative(5));
+		HashMap hmap = new HashMap<>();
 		
+		hmap.put("nik", 10);
+		hmap.put("nik", 11);
 		
+		System.out.println(hmap);
 		
-
-	}
+		}
+		
 
 }

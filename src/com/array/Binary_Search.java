@@ -1,6 +1,6 @@
 package com.array;
 
-public class BinarySearch 
+public class Binary_Search 
 {
 	public boolean BinSearchIterative(int [] a, int max, int min, int key)
 	{
@@ -39,7 +39,7 @@ public class BinarySearch
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int [] primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-		BinarySearch bin = new BinarySearch();
+		Binary_Search bin = new Binary_Search();
 		System.out.println(bin.BinSearchIterative(primes, primes.length-1, 0, 47));
 		bin.BinSearchRec(primes, primes.length-1, 0, 47);
 		
