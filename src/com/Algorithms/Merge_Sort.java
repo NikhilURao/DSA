@@ -6,11 +6,11 @@ public class Merge_Sort
 	{
 		// create a temp array
 		int temp[] = new int[end - start + 1];
-
+		
 		// crawlers for both intervals and for temp
 		int i = start; 
 		int j = mid+1;
-		int k = 0;
+		int k = 0;// for temp pointer
 		
 		// traverse both arrays and in each iteration add smaller of both elements in temp 
 		while(i <= mid && j <= end) {
@@ -44,19 +44,21 @@ public class Merge_Sort
 		for(i = start; i <= end; i += 1) {
 			Arr[i] = temp[i - start];
 		}
+		
 	}
 
 	// Arr is an array of integer type
 	// start and end are the starting and ending index of current interval of Arr
 
 	static void mergeSort(int Arr[], int start, int end) {
-
+		
 		if(start < end) {
 			int mid = (start + end) / 2;
 			mergeSort(Arr, start, mid);
 			mergeSort(Arr, mid+1, end);
 			merge(Arr, start, mid, end);
 		}
+		
 	}	
 	
 	public static void main(String[] args) {
@@ -68,7 +70,7 @@ public class Merge_Sort
 			test[i]=sc.nextInt();
 		}
 		*/
-		int [] test = {7,9,2,8,4};
+		int [] test = {3,8,4,2,7,9,1};
 		System.out.println("Array before MergeSort : ");
 		for (int i=0;i<test.length;i++) {
 			System.out.print(test[i]);
