@@ -3,6 +3,7 @@ package com.linked;
 public class MyLinkedList_Functions {
 	private Node head;
 	
+	// PushFront
 	public void InsertAtBeginning(int data) 
 	{
 		
@@ -19,8 +20,34 @@ public class MyLinkedList_Functions {
 		}
 	}
 	
+	// TopFront - Return front item
+	public Node TopFront()
+	{
+		if (this.head != null)
+		{
+			return this.head;
+		}
+		else
+		{
+			System.out.println("Empty Linked List. No Front item to return");
+			return null;
+		}
+	}
 	
+	// PopFront - remove front item
+	public void PopFront()
+	{
+		if (this.head != null)
+		{
+			this.head = this.head.next;
+		}
+		else
+		{
+			System.out.println("Empty Linked List. No Front item to remove");
+		}
+	}
 	
+	// PushBack
 	public void InsertAtEnd(int data)
 	{ 
 		if(this.head == null)
@@ -39,9 +66,80 @@ public class MyLinkedList_Functions {
 		}
 	}
 	
+	// TopBack - return back item
+	public Node TopBack()
+	{
+		if (this.head != null)
+		{
+			Node temp = this.head;
+			
+			while (temp.next != null)
+			{
+				temp = temp.next;
+			}
+			
+			return temp;
+		}
+		else 
+		{
+			System.out.println("Empty Liked List. No back item to return");
+			return null;
+		}
+	}
+	
+	// PopBack - remove back item
+	public void PopBack()
+	{
+		if (this.head != null)
+		{
+			Node temp = this.head;
+			
+			while (temp.next.next != null)
+			{
+				temp = temp.next;
+			}
+			
+			temp.next = null;
+		}
+		
+		else
+		{
+			System.out.println("Empty Linked List. No back item to pop");
+		}
+		
+	}
+	
+	//Find - is key in list
+	public boolean find(int data)
+	{
+		if (this.head != null)
+		{
+			Node temp = this.head;
+			
+			while (temp.next != null)
+			{
+				if (temp.data == data)
+				{
+					return true;
+				}
+			}
+			
+			return false;
+		}
+		else return false;
+
+	}
+	
+	// IsEmpty
+	public boolean IsEmpty()
+	{
+		if (this.head == null) return true;
+		else return false;
+	}
 	
 	public void InsertAfterkthNode(int data,int k)
 	{
+		if (k > getLength()) return;
 		if (this.head == null || k==0)
 		{
 			Node temp = new Node(data);
@@ -70,7 +168,7 @@ public class MyLinkedList_Functions {
 		
 		}
 }
-	
+	// Pop
 	public void DeleteNode(int pos)
 	{
 		if (this.head == null)
@@ -85,7 +183,7 @@ public class MyLinkedList_Functions {
 		}
 		else 
 		{ 			
-		int i = 0;
+		int i = 1;
 		Node present=this.head;
 		Node previous = null;
 		//Node next = this.head.next;
@@ -129,15 +227,23 @@ public class MyLinkedList_Functions {
 	}
 	
 	public static void main(String[] args) {
-		MyLinkedList_Functions ll_func = new MyLinkedList_Functions();
-		ll_func.InsertAtEnd(10);
-		ll_func.InsertAtEnd(20);
-		ll_func.InsertAtEnd(30);
-		ll_func.InsertAtEnd(40);
-		ll_func.InsertAtEnd(50);
-		ll_func.print();
+		MyLinkedList_Functions ll_func_api = new MyLinkedList_Functions();
+		ll_func_api.InsertAtBeginning(10);
+		ll_func_api.InsertAtBeginning(15);
+		ll_func_api.InsertAtEnd(12);
+		ll_func_api.InsertAfterkthNode(7, 2);
+		ll_func_api.InsertAfterkthNode(30, 0);
+		ll_func_api.InsertAfterkthNode(13, 3);
+		ll_func_api.PopBack();
+		ll_func_api.PopFront();
+		ll_func_api.DeleteNode(2);
+		
+		
+		ll_func_api.print();
 		System.out.println();
-		System.out.println("Length : "+ll_func.getLength());
+		System.out.println(ll_func_api.TopBack().data);
+		System.out.println(ll_func_api.TopFront().data);
+		
 	}
 
 }

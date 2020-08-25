@@ -71,15 +71,16 @@ public class PostorderTransversal
 		BTNode root = new BTNode(1);
 		root.left = new BTNode(6);
 		root.right = new BTNode(2);
-		//root.left.right = new BTNode(4);
+		root.left.right = new BTNode(4);
 		root.left.left = new BTNode(3);
-		//root.right.left = new BTNode(16);
-		//root.right.left.right = new BTNode(12);
+		root.right.left = new BTNode(16);
+		root.right.left.right = new BTNode(12);
 		
 		PostorderTransversal pot = new PostorderTransversal();
 		pot.PostOrderTransverseRec(root);
 		System.out.println();
 		pot.PostOrderTraverseIterative(root);
+		//System.out.println(ld);
 	}
 
 }

@@ -26,7 +26,7 @@ public class ChangeDP
         	}
         	return T[m];
 	}
-
+/*
     private static int getChangeTopDown(int m, int [] coins, TreeMap<Integer, Integer> map)
     {
     	if (m == 0)
@@ -48,13 +48,13 @@ public class ChangeDP
     	
     	map.put(key, value)
     }
-
+*/
     public static void main(String[] args) 
 	{
         Scanner scanner = new Scanner(System.in);
         int m = scanner.nextInt();
-        int [] coins = {4,3,1};
-        System.out.println(getChange(m));
+        int [] coins = {1,2,5,10,50,100};
+        System.out.println(getChangeBottomUpApproach(m, coins));
 
     }
 }

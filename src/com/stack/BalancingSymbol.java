@@ -119,7 +119,7 @@ public class BalancingSymbol {
  	
 	public static void main(String[] args) {
 		BalancingSymbol bsl = new BalancingSymbol();
-		System.out.println(bsl.isValidSymbolPatter("()(()[{])"));
+		System.out.println(bsl.isValidSymbolPatter("{}([]"));
 
 	}
 

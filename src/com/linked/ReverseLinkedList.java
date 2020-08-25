@@ -62,6 +62,7 @@ public class ReverseLinkedList
 		this.head = prev;
 	}
 	
+	
 	public Node RevLL4(Node head)
 	{
 		if (head == null || head.next == null)
@@ -118,9 +119,13 @@ public class ReverseLinkedList
 		ll.add(26);
 		ll.add(45);
 		ll.print();
+		//ll.rev();
+		System.out.println();
+		ll.print();
 		/*
 		System.out.println();
 		ll.RevLL1();
+		ll.print();
 		System.out.println();
 		ll.print();
 		System.out.println();
@@ -132,10 +137,11 @@ public class ReverseLinkedList
 		System.out.println();
 		ll.print();
 		System.out.println();
-		*/
+		
 		ll.head = ll.RevLL4(ll.head);
 		System.out.println();
 		ll.print();
+		*/
 
 	}
 

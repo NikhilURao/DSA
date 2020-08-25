@@ -1,12 +1,44 @@
 package exercise;
+import java.math.BigInteger;
+import java.util.Queue;
+import java.util.Stack;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import com.trees.BTNode;
 
 /*
  * n! = n*(n-1)*........*1
  */
 
 public class practice {
+	
+	public void lvlOrderTraverse(BTNode root)
+	{
+		if (root != null)
+		{
+			Queue<BTNode> q = new LinkedList<BTNode>();
+			q.add(root);
+			
+			while (!q.isEmpty())
+			{
+				BTNode temp = q.remove();
+				System.out.print(temp.data+" ");
+				
+				if (temp.left != null)
+				{
+					q.add(temp.left);
+				}
+				if (temp.right != null)
+				{
+					q.add(temp.right);
+				}
+			}
+		}
+		
+	}
+	
 	public int FactorialIterative(int n)
 	{
 		int fact = 1;
@@ -148,17 +180,31 @@ public class practice {
                 }
             }
         }
-		return T[total];  
+		return T[total]; 
+		
+		
+		
     }
 
 	public static void main(String[] args) {
+		/*
+		BTNode root = new BTNode(7);
+		root.left = new BTNode(6);
+		root.right = new BTNode(11);
+		root.left.left = new BTNode(14);
+		root.left.right = new BTNode(5);
+		root.right.left = new BTNode(2);
+		root.right.right = new BTNode(4);
 		
 		practice p = new practice();
-		//int [] a = {1, 4, 2, 4, 2, 4, 1};
-		//p.partition3(a, 0, a.length-1);
-		int [] coins = {5,2,1};
-		System.out.println(p.minimumCoinBottomUp(9, coins));
-		}
+		p.lvlOrderTraverse(root);
+		*/
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>(5);
+		map.put(10, 20);
+		map.put(10, 5);
+		System.out.println(map.get(10));
 		
-
-}
+		
+		
+		
+}}
