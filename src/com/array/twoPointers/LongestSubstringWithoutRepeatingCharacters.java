@@ -64,8 +64,8 @@ public class LongestSubstringWithoutRepeatingCharacters
 	public static void main(String[] args) 
 	{
 		LongestSubstringWithoutRepeatingCharacters lswr = new LongestSubstringWithoutRepeatingCharacters();
-		System.out.println(lswr.findMaxLenSubstringWithoutRepeats("abcabcbb"));
-		System.out.println(lswr.findMaxLenSubstringWithoutRepeats1("abcabcbb"));
+		System.out.println(lswr.findMaxLenSubstringWithoutRepeats("abcakcbb"));
+		System.out.println(lswr.findMaxLenSubstringWithoutRepeats1("abcakcbb"));
 
 	}
 

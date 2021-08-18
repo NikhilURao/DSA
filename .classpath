@@ -6,6 +6,5 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/nurao/Downloads/javatuples-1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

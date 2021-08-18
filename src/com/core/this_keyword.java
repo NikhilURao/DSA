@@ -39,7 +39,8 @@ void display() {
 public class this_keyword {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		String a = "nik";
+		System.out.println(a.charAt(a.length()-1));
 
 	}
 

@@ -48,7 +48,7 @@ class GFG
          id = id * 62 + shortURL.charAt(i) - '0' + 52;  
      }  
      return id;  
- }  
+ }  	
    
  // Driver Code 
  public static void main (String[] args) throws IOException 
@@ -58,5 +58,16 @@ class GFG
      System.out.println("Generated short url is " + shorturl);  
      System.out.println("Id from url is " +  
                          shortURLtoID(shorturl));  
+     int count=0;
+     HashMap<Integer, Integer> hm = new HashMap<>();
+     //hm.forEach((k,v)-> Integer count =count+v/2 );
+     
+     for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+    	 
+     }
+    	 
+    	 
+    	 
+    	 
  } 
 }

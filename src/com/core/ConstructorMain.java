@@ -35,6 +35,7 @@ class Product {
 public class ConstructorMain {
 
 	public static void main(String[] args) {
+		
 		Product p = new Product();
 		Product p1 = new Product(47761, "iPhone X 128MB");
 		System.out.println(p1.prname);

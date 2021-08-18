@@ -42,17 +42,18 @@ public class Segregate_0s_1s_2s
 			System.out.print(a[i]+ " ");
 		}
 	}
-	
-	public void segregateUsingCountingSort(int [] a)
-	{
+	// same as sort an array of 0s 1s and 2s
+	public int [] segregateUsingCountingSort(int [] a){
 		int [] count_arr = new int [3];
 		Arrays.fill(count_arr, 0);
 		
+		// find frequency of occurrence 0,1,2
 		for (int i=0; i<a.length; i++)
 		{
 			count_arr[a[i]]++;
 		}
 		
+		// cal cumulative sum of count_arr to find the range of index positions
 		for (int i=1; i<count_arr.length; i++)
 		{
 			count_arr[i] += count_arr[i-1]; 
@@ -60,18 +61,19 @@ public class Segregate_0s_1s_2s
 				
 		int [] fin_arr = new int [a.length];
 		
-		for (int i=a.length-1; i>=0; i--)
-		{
+		for (int i=0; i<a.length; i++){
 			fin_arr[count_arr[a[i]]-1] = a[i];
 			count_arr[a[i]]--;
 		}
 		
-		// print
+		return fin_arr;
+		
+		/* print
 		for (int i=0; i<fin_arr.length; i++)
 		{
 			System.out.print(fin_arr[i]+" ");
-		}
-	}
+		}*/
+	} 
 
 	public static void main(String[] args) 
 	{
@@ -88,7 +90,10 @@ public class Segregate_0s_1s_2s
 		szot.segregateUsingDutchNationalFlag(arr);
 		System.out.println();
 		System.out.println("Array after sorting using Counting Sort Technique: ");
-		szot.segregateUsingCountingSort(arr);
+		int [] res =szot.segregateUsingCountingSort(arr);
+		for (int i=0; i<res.length; i++){
+			System.out.print(res[i]+" ");
+		}
 	}
 
 }

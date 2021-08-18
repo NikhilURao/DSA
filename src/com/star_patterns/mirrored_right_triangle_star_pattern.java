@@ -1,18 +1,26 @@
 package com.star_patterns;
 
+import java.util.ArrayList;
+
 public class mirrored_right_triangle_star_pattern {
 
 	public static void main(String[] args) {
 		int n=5,i,j;
-		for (i=1;i<=n;i++) {
-			for (j=1;j<=n-i;j++){
-				System.out.print(" ");
+		ArrayList<ArrayList<Integer>> a = new ArrayList<ArrayList<Integer>>();
+		for (i=0;i<n;i++) {
+			for (j=0;j<n-i;j++){
+				a.get(i).set(j,0);
 			}
-			for (j=1;j<=i;j++) {
-				System.out.print("*");
+			for (j=i;j>0;j--) {
+				a.get(i).set(j,j);
 			}
-			System.out.println(" ");
+			//System.out.println(" ");
 		}
+		
+		for (i=1;i<n;i++) {
+			for (j=0;j<n;j++){
+				System.out.print(a.get(i).get(j));
+			}}
 
 	}
 

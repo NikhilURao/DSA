@@ -8,7 +8,8 @@
  * creation.
  *
  * Idea to create an abstract data type dynamic array: 
- * store a pointer to the dynamic allocated array and replace it with a newly allocated 
+ * store a pointer to the dynamic allocated array and replace
+ * it with a newly allocated 
  * dynamically allocated array as and when needed.
  * 
  * APIs:
@@ -16,6 +17,10 @@
  * set(i, val): set the value of ith element to val.
  * pushBack(val): adds val to the end of the array.
  * remove(i): removes the element at the ith index. 
+ * 
+ * Amortized TC = O(1)=> random access/constant 
+ * SP = O(n)
+ * 
  */
 
 package com.array;
