@@ -80,7 +80,7 @@ Example: A [-2,1,-3,4,-1,2,1,-5,4]
 cur_subarray_max	overall_subarray_max
 -2 -> -2			-2 -> -2
  1 -> 1				 1 -> 1
--2 -> 1,-3 			 1 -> 1
+-3 -> 1,-3 			 1 -> 1
  4 -> 4				 4 -> 4
  3 -> 4,-1			 4 -> 4
  5 -> 4,-1,2		 5 -> 4,-1,2
@@ -93,6 +93,8 @@ cur_subarray_max	overall_subarray_max
  */
 
 package com.array;
+
+import javafx.util.Pair;
 
 public class MaxSumContiguousSubarrayOrKadanesAlgorithm {
 	
@@ -110,25 +112,38 @@ public class MaxSumContiguousSubarrayOrKadanesAlgorithm {
 		return maxSum;
 	}
 	
-	public static int getMaximumSumSubarrayBruteForceUsingKadanesAlgo(int [] A) {
+	public static Pair<Integer,int[]> getMaximumSumSubarrayBruteForceUsingKadanesAlgo(int [] A) {
 		int cur_subarray_max = A[0];
 		int overall_subarray_max = A[0];
+		int [] index = new int [2];
+		int start=0; int end=0; int _start = 0; int _end = 0;
 		
 		for (int i=1; i<A.length; i++) {
-			if (cur_subarray_max > 0)
+			if (cur_subarray_max > 0) {
 				cur_subarray_max += A[i];
-			else
+				end = i;
+			}
+				
+			else {
 				cur_subarray_max = A[i];
+				start = i;
+			}
 			
-			overall_subarray_max = Math.max(overall_subarray_max, cur_subarray_max);
+			if (cur_subarray_max > overall_subarray_max) {
+				overall_subarray_max = cur_subarray_max;
+				_start = start;
+				_end = end;
+			}
 		}
 		
-		return overall_subarray_max;
+		index[0] = _start; index[1] = _end;
+		return  new Pair<Integer, int[]>(overall_subarray_max, index);
 	}
 
 	public static void main(String[] args) {
 		System.out.println(getMaximumSumSubarrayBruteForce(new int [] {-2,1,-3,4,-1,2,1,-5,4}));
-		System.out.println(getMaximumSumSubarrayBruteForceUsingKadanesAlgo(new int [] {-2,1,-3,4,-1,2,1,-5,4}));
+		Pair<Integer, int[]> pout = getMaximumSumSubarrayBruteForceUsingKadanesAlgo(new int [] {-2,1,-3,4,-1,2,1,-5,4});
+		System.out.println(pout.getKey()+" "+pout.getValue()[0]+":"+pout.getValue()[1]);
 
 	}
 
