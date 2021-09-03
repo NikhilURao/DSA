@@ -23,7 +23,7 @@ package com.NumberSysAndBitManipulation;
 public class CheckKthBitSetOrNot {
     static boolean checkKthBit(int n, int k)
     {
-        int binlr1 = 1 << k; // Left shift 1 by k to create a number that has only set bit as kth bit.
+        int binlr1 = 1 << (k-1); // Left shift 1 by k to create a number that has only set bit as kth bit.
         if ((n & binlr1) > 0) { // If bitwise AND of n and binlr1 is non-zero, then kth bit is SET else kth bit is NOT SET.
         	return true;
         }
@@ -33,7 +33,7 @@ public class CheckKthBitSetOrNot {
 
 	public static void main(String[] args) {
 		CheckKthBitSetOrNot check = new CheckKthBitSetOrNot();
-		System.out.println(check.checkKthBit(500, 4));
+		System.out.println(check.checkKthBit(2, 2));
 		
 
 	}
