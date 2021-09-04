@@ -73,8 +73,15 @@ public class FindGCD {
 		return a;
 	}
 	
-	// Euclidean Algorithm using modular division
-	/*
+	/* Euclidean Algorithm using modular division 
+	 * 
+	 * wkt GCD(a,b) = GCD(a, b-a) considering b>a
+	 * For example GCD(5, 9) = GCD(5, 4) = 1
+	 * Instead of repeatedly subtracting we can use modular division
+	 * For example GCD(5, 2255) = GCD(5, 2250) = GCD(5, 2245) ...... = GCD(5, 0) = 5
+	 * Instead we can use GCD(5, 2255) = GCD(5, 2255%5) = GCD(5, 0) = 5
+	 * Base condition GCD(num, 0) = num
+	 * 
 	 * The Euclidean algorithm is based on the below facts:
 	 * If we subtract the smaller number from larger (we reduce larger number), 
 	 * GCD doesn't change. So if we keep subtracting repeatedly the larger of 
@@ -86,16 +93,58 @@ public class FindGCD {
 		// base case: GCD of 0 with 'a' is a.
 		if (a==0)
 			return b;
-		else if (b==0)
-			return a;
 		else
-			return getGCD_EuclideanAlgorithmOptimized(b, a%b);
+			return getGCD_EuclideanAlgorithmOptimized(b%a, a);
 	}
+	/*
+	 * Extended Euclidean Algorithm: 
+	 * Extended Euclidean algorithm also finds integer coefficients x and y such that: 
+	 * ax + by = gcd(a, b) 
+	 * 
+	 * Examples:  
+	 * Input: a = 30, b = 20
+	 * Output: gcd = 10
+	 * x = 1, y = -1
+	 * (Note that 30*1 + 20*(-1) = 10)
+	 * Input: a = 35, b = 15
+	 * Output: gcd = 5
+	 * x = 1, y = -2
+	 * (Note that 35*1 + 15*(-2) = 5)
+	 * The extended Euclidean algorithm updates results of gcd(a, b) using the results calculated by recursive call gcd(b%a, a). Let values of x and y calculated by the recursive call be x1 and y1. x and y are updated using the below expressions. 
+	 * x = y1 - ⌊b/a⌋ * x1
+	 * y = x1
+	 * 
+	 * 
+	 * 
+	 */
+	public static int getGCD_EuclideanAlgorithmExtended(int a, int b, int x, int y)
+    {
+
+        // Base Case
+        if (a == 0)
+        {
+            x = 0;
+            y = 1;
+            return b;
+        }
+ 
+        int x1=1, y1=1; // To store results of recursive call
+        int gcd = getGCD_EuclideanAlgorithmExtended(b%a, a, x1, y1);
+ 
+        // Update x and y using results of recursive
+        // call
+        x = y1 - (b/a) * x1;
+        y = x1;
+ 
+        return gcd;
+    }
 
 	public static void main(String[] args) {
 		System.out.println(getGCD_Naive(10000,11));
 		System.out.println(getGCD_EuclideanAlgorithm(10000,11));
 		System.out.println(getGCD_EuclideanAlgorithmOptimized(10000,11));
+		System.out.println(getGCD_EuclideanAlgorithmExtended(35,15,1,1));
+		
 
 	}
 
