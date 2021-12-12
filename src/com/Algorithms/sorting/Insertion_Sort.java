@@ -11,6 +11,12 @@
  * 3. The above procedure is repeated until all the element in the array is 
  * 	  at their apt position.
  * 
+ *  * Disadvantages:
+ * 1. TC => O(n^2)
+ * 2. lot of shifts are involved in insertion sort
+ *  
+ *  * Advantages 
+ *  1. In place sorting algorithm 
  */
 /*
  * Time Complexity : O(n^2)

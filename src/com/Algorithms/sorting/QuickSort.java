@@ -1,3 +1,12 @@
+/*
+ * Since we are randomly choosing the pivot, the best case time complexity is when the pivot divides 
+ * the array into exactly 2 halves. So the best case tc => O(nlogn) .i.e the pivot element's value is the 
+ * median of the array. n -> n/2 -> n/4 -> n/8 -> ........ -> 1
+ * On the contrary  the worst case TC is when the pivot chosen divides the array into n-1 and 1 parts. 
+ * every recursive call the problem reduces by 1. So worst case TC is O(n^2)
+ * n -> n-1 -> n-2 -> .............. -> 1 (n+n-1+n-2+n-3+n-4+n-5+........ = n(n+1)/2 = O(n^2))
+ * Average case lies between nlogn and n^2, but it will be closer to nlogn, just the base of log varies 
+ */
 package com.Algorithms.sorting;
 
 public class QuickSort 

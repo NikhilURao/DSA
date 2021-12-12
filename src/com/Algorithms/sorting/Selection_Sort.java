@@ -12,8 +12,17 @@ from the unsorted subarray is picked and moved to the sorted subarray.
  * 3. Forget the first element and repeat the process for 
  * 	  the remaining part of the array.
  * The array continues to sink till the last valid case.
- * 
+ *  
+ * Time Complexity:
  * O(n^2)
+ * 
+ * Disadvantages: 
+ *  1. Polynomial Order TC=> O(n^2)
+ *  2. 
+ *  
+ *  Advantages:
+ *  1. In-place sorting, no need for extra space/ constant space: O(1) 
+ * 
  */
 package com.Algorithms.sorting;
 
@@ -27,20 +36,28 @@ public class Selection_Sort
 	public void selectionSort_nonDecreasing(int [] arr)
 	{
 		int len = arr.length;
-		int min_index = 0;
 		
 		for (int i=0; i<len; i++)
 		{
 			for (int j=i+1; j<len; j++)
 			{
+				int min = Integer.MAX_VALUE;
+				int minindex = 0;
 				if (arr[j] < arr[i])
 				{
-					int temp = arr[j];
-					arr[j] = arr[i];
-					arr[i] = temp;
-					min_index=j;
-					
+					min = arr[j];
+					minindex = j;
 				}
+				
+	            // swap arr[i] and min if arr[i]>min i.e. Swap the minimum with the element in the first index if the element in the first index is greater than the min we just found out
+	            if (arr[i]>min) {
+	                int temp = arr[i];
+	                arr[i] = arr[minindex];
+	                arr[minindex] = temp;
+	            }
+	            else {
+	            	minindex = i;
+	            }
 			}
 		}
 	}

@@ -350,6 +350,8 @@ public class practice {
 			else System.out.println(1);
 		}
 		
+
+		
 		
 
 		

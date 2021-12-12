@@ -10,7 +10,17 @@
  *  3. Go to second element and compare with the third element.
  *  4. At each iteration the greatest elements comes to the end of the array. (i.e for the first iteration the largest element comes to the end of the array, 2nd iteration the 2nd largest element comes to the last but one place of the array so on )
  *  5. Continue the process till the whole array is sorted.
+ *  
+ *  Time Complexity: Worst case is O(n^2)
+ *  Best case using the boolean flag and just need one run to find if the array is already sorted. O(n)
  *  Order of n^2. Polynomial order 
+ *  
+ *  Disadvantages: 
+ *  1. Polynomial Order TC=> O(n^2)
+ *  2. 
+ *  
+ *  Advantages:
+ *  1. In-place sorting, no need for extra space/ constant space: O(1) 
  */
 package com.Algorithms.sorting;
 

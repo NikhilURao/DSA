@@ -33,8 +33,8 @@ public class LocalMinima {
 
 	public static void main(String[] args) {
 		int [] array = {10, 9, 1, 3, 5, 6};
-		int [] array1 = {6,7,8,9,10};
-		int [] array2 = {11,10,9,8,7};
+		int [] array1 = {6,7,2,9,10};
+		int [] array2 = {11,10,9,9,12};
 		LocalMinima lm = new LocalMinima();
 		System.out.println(lm.searchMinima(array));
 		System.out.println(lm.searchMinima(array1));
