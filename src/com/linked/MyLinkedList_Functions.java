@@ -101,6 +101,9 @@ public class MyLinkedList_Functions {
 			
 			temp.next = null;
 		}
+		else if(this.head.next == null) { // just 1 element
+			this.head = null;
+		}
 		
 		else
 		{

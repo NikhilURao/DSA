@@ -76,8 +76,6 @@ public class FindPeak {
 
 	public static void main(String[] args) {
 		System.out.println(findPeakElement(new ArrayList<Integer>(Arrays.asList(2, 3, 3))));
-		
-
 	}
 
 }
