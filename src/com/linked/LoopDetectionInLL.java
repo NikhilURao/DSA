@@ -4,29 +4,11 @@ import java.util.HashSet;
 
 public class LoopDetectionInLL {
 	
-	Node head;
-	
-	public void Insert_LL(int data) 
-	{
-		
-		if(this.head == null) 
-		{
-			this.head=new Node(data);
-			
-		}
-		else 
-		{
-			Node temp = new Node(data);
-			temp.next = this.head;
-			this.head = temp;
-		}
-	}
-	
 	// Detect Loop or Cycle using Hash Table
-	public boolean detectLoopWithHashTable()
+	public boolean detectLoopWithHashTable(Node head)
 	{
 		HashSet<Node> hs = new HashSet<Node>();
-		Node temp = this.head;
+		Node temp = head;
 		
 		while (temp.next != null)
 		{
@@ -45,13 +27,14 @@ public class LoopDetectionInLL {
 		return false;
 		
 	}
+
 	// Detect Loop and Loop starting Node 
-	//using Floyd’s Cycle-Finding Algorithm (Hare and Tortoise)
+	//using Floyd's Cycle-Finding Algorithm (Hare and Tortoise)
 	
-	public boolean detectLoop()
+	public boolean detectLoop(Node head)
 	{
-		Node temp1 = this.head;
-		Node temp2 = this.head;
+		Node temp1 = head;
+		Node temp2 = head;
 		while (temp1 != null && temp2 != null && temp2.next != null)
 		{
 			temp1 = temp1.next;
@@ -67,56 +50,194 @@ public class LoopDetectionInLL {
 		
 	}
 
-	
-	public int detectLoopStartingNode()
+	/*
+	 * List Cycle - Loop Starting Node
+	 * 
+Problem Description
+
+Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+
+Try solving it using constant additional space.
+
+Example:
+
+Input: 
+
+                  ______
+                 |     |
+                 \/    |
+        1 -> 2 -> 3 -> 4
+
+Return the node corresponding to node 3. 
+	 */	
+	public Node detectLoopStartingNode(Node head)
 	{
-		Node temp1 = this.head;
-		Node temp2 = this.head;
-		Node ptr1 = this.head;
-		Node ptr2 = null;
-		while (temp1 != null && temp2 != null && temp2.next != null)
+		Node tortoise = head;
+		Node hare = head;
+		Node loopStartingPoint = head;
+		Node meetingPoint = null;
+		while (hare.next != null && hare.next.next != null)
 		{
-			temp1 = temp1.next;
-			temp2 = temp2.next.next;
+			tortoise = tortoise.next;
+			hare = hare.next.next;
 			
-			if (temp1 == temp2)
+			if (tortoise == hare)
 			{
-				ptr2 = temp1;
+				meetingPoint = tortoise;
 				break;
 			}	
 		}
 		
-		while (ptr1 != ptr2)
-		{
-			ptr1 = ptr1.next;
-			ptr2 = ptr2.next;	
+		if (meetingPoint == null) {
+			// No loop in LL
+			return null;
+		}
+		else {
+			while (loopStartingPoint != meetingPoint)
+			{
+				loopStartingPoint = loopStartingPoint.next;
+				meetingPoint = meetingPoint.next;	
+			}
+			
+			return loopStartingPoint;
 		}
 		
-		return ptr1.data;
-		
 	}
+	
+	/*
+	 * Remove Loop from Linked List
+	 * 
+Problem Description
+
+Given a linked list which contains some loop.
+
+You need to find the node, which creates a loop, and break it by making the node point to NULL.
+
+
+
+Problem Constraints
+
+1 <= number of nodes <= 1000
+
+
+
+Input Format
+
+Only argument is the head of the linked list.
+
+
+
+Output Format
+
+return the head of the updated linked list.
+
+
+
+Example Input
+
+Input 1:
+
+ 
+1 -> 2
+^    |
+| - - 
+Input 2:
+
+3 -> 2 -> 4 -> 5 -> 6
+          ^         |
+          |         |    
+          - - - - - -
+
+
+Example Output
+
+Output 1:
+
+ 1 -> 2 -> NULL
+Output 2:
+
+ 3 -> 2 -> 4 -> 5 -> 6 -> NULL
+
+
+Example Explanation
+
+Explanation 1:
+
+ Chain of 1->2 is broken.
+Explanation 2:
+
+ Chain of 4->6 is broken.
+ 
+	 */
+	public Node breakLoopInLL(Node head) {
+		Node tortoise = head;
+		Node hare = head;
+		Node loopStartingPoint = head;
+		Node meetingPoint = null;
+		while (hare.next != null && hare.next.next != null)
+		{
+			tortoise = tortoise.next;
+			hare = hare.next.next;
+			
+			if (tortoise == hare)
+			{
+				meetingPoint = tortoise;
+				break;
+			}	
+		}
+		
+		if (meetingPoint == null) {
+			// No loop in LL
+			return null;
+		}
+		else {
+			while (meetingPoint.next != loopStartingPoint.next)
+			{
+				loopStartingPoint = loopStartingPoint.next;
+				meetingPoint = meetingPoint.next;	
+			}
+			
+			meetingPoint.next = null;
+			return head;
+		}
+	}
+	
+	public static void printLL(Node head) {
+		if (head!=null) {
+			Node ptr = head;
+			while (ptr!=null) {	
+				System.out.print(ptr.data+" ");
+				ptr = ptr.next;
+			}
+		}	
+	}
+	
 	public static void main(String[] args) {
 		LoopDetectionInLL lpd = new LoopDetectionInLL();
-		lpd.Insert_LL(1);
-		lpd.Insert_LL(11);
-		lpd.Insert_LL(22);
-		lpd.Insert_LL(2);
-		lpd.Insert_LL(23);
-		lpd.Insert_LL(45);
-		lpd.Insert_LL(8);
+		
+		Node head = new Node(33);
+		head.next = new Node (4);
+		head.next.next = new Node(7);
+		head.next.next.next = new Node(11);
+		head.next.next.next.next = new Node (44);
+		head.next.next.next.next.next = head.next.next;
+		
+		/*
+		 *  33 -> 4 -> 7 -> 11 -> 44
+		 *             |          |
+		 *             |          |
+		 *              ----------           
+		 *  
+		 */
 		
 		//System.out.println(lpd.detectLoopWithHashTable());
-		System.out.println(lpd.detectLoop());
-		
-		lpd.head = new Node(33);
-		lpd.head.next = new Node (4);
-		lpd.head.next.next = new Node(7);
-		lpd.head.next.next.next = new Node(11);
-		lpd.head.next.next.next = lpd.head.next;		
-		
-		//System.out.println(lpd.detectLoopWithHashTable());
-		System.out.println(lpd.detectLoop());
-		System.out.println(lpd.detectLoopStartingNode());
+		System.out.println("Loop present in the LL? : "+ lpd.detectLoop(head));
+		Node loopStartNode = lpd.detectLoopStartingNode(head);
+		System.out.println("Loop starting point is Node: "+loopStartNode+
+				" with data "+loopStartNode.data);
+		head = lpd.breakLoopInLL(head);
+		System.out.println("Loop chain broken. LL after breaking the loop is: ");
+		printLL(head);
 		
 		
 		
