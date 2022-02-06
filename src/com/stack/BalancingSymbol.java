@@ -1,6 +1,7 @@
 package com.stack;
 
 import java.util.EmptyStackException;
+import java.util.Stack;
 
 public class BalancingSymbol {
 	

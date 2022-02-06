@@ -1,6 +1,8 @@
 /*
  * Stack is LIFO (Last In First Out) or FILO (First In Last Out)
  * terminology : push -> add data ; pop -> delete 
+ * 
+ * Approach: Push at head/front and pop at head/front
  */
 
 package com.stack;
