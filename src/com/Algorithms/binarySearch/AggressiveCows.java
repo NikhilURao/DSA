@@ -2,9 +2,13 @@
  * Aggressive cows
 Problem Description
 
-Farmer John has built a new long barn, with N stalls. Given an array of integers A of size N where each element of the array represents the location of the stall, and an integer B which represent the number of cows.
+Farmer John has built a new long barn, with N stalls. Given an array of integers A of size N where each element 
+of the array represents the location of the stall, and an integer B which represent the number of cows.
 
-His cows don't like this barn layout and become aggressive towards each other once put into a stall. To prevent the cows from hurting each other, John wants to assign the cows to the stalls, such that the minimum distance between any two of them is as large as possible. What is the largest minimum distance?
+His cows don't like this barn layout and become aggressive towards each other once put into a stall. 
+To prevent the cows from hurting each other, John wants to assign the cows to the stalls, 
+such that the minimum distance between any two of them is as large as possible. 
+What is the largest minimum distance?
 
 
 
@@ -42,20 +46,24 @@ In the second test case, the largest minimum distance will be 4 when 3 cows are 
 
 Solution:
 
-We’ll be doing the binary search for finding the best possible maximum difference.
+We'll be doing the binary search for finding the best possible maximum difference.
 
 Since the maximum difference range between 0 to max of array.
-If we sort the array then binary search starts with l=0 and r=A[n-1] and we’ve to find the maximum distance.
-For mid in binary search, we will check whether there are B stalls such that the minimum distance is greater than equal to mid.
+If we sort the array then binary search starts with l=0 and r=A[n-1] and weve to find the maximum distance.
+For mid in binary search, we will check whether there are B stalls such that the minimum distance is greater 
+than equal to mid.
 Finally store the maximum value we can get.
 
 Algorithm: 
 1. Sort the array with the location of the stalls/barns in ascending order as it may not be in order
-2. The possible answer i.e. largest minimum distance ranges between 1 and (max element in arr - min element in arr)
+2. The possible answer i.e. largest minimum distance ranges between 1 and 
+(max element in arr - min element in arr)
 3. So search space is between 1 and max - min. So low = 1 and high = A[len-1] - A[0].
 4. Find mid
-5. Check if we can place 'k' cows in arraylist stalls in any conf with minimum distance between any 2 cows being mid
-if yes then, save mid in res and check if any larger distance can be achieved by low = mid+1. Discarding all values lower than mid. search space is now mid+1 to high
+5. Check if we can place 'k' cows in array list stalls in any conf with minimum distance between any 2 cows 
+being mid
+if yes then, save mid in res and check if any larger distance can be achieved by low = mid+1. 
+Discarding all values lower than mid. search space is now mid+1 to high
 if no then, discard all distances higher than mid and reduce the search space to low to mid-1 -> high = mid-1
 
 TC => O(nlogn) <Sorting> + O(nlogn) <Processing>

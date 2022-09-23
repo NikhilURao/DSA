@@ -1,3 +1,43 @@
+/*
+ * 
+ * 72. Edit Distance a.k.a minimum number of ops to convert str1 to str2
+
+Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2.
+
+You have the following three operations permitted on a word:
+
+Insert a character
+Delete a character
+Replace a character
+ 
+
+Example 1:
+
+Input: word1 = "horse", word2 = "ros"
+Output: 3
+Explanation: 
+horse -> rorse (replace 'h' with 'r')
+rorse -> rose (remove 'r')
+rose -> ros (remove 'e')
+Example 2:
+
+Input: word1 = "intention", word2 = "execution"
+Output: 5
+Explanation: 
+intention -> inention (remove 't')
+inention -> enention (replace 'i' with 'e')
+enention -> exention (replace 'n' with 'x')
+exention -> exection (replace 'n' with 'c')
+exection -> execution (insert 'u')
+ 
+
+Constraints:
+
+0 <= word1.length, word2.length <= 500
+word1 and word2 consist of lowercase English letters.
+ * 
+ */
+
 package com.dp;
 import java.util.*;
 
@@ -42,12 +82,10 @@ class EditDistance
 	  res = Math.min(res, n3);
 	  return res;
   }
-  public static void main(String args[]) 
-  {
-    Scanner scan = new Scanner(System.in);
+  public static void main(String args[]) {
 
-    String s = scan.next();
-    String t = scan.next();
+    String s = "horse";
+    String t = "ros";
     
     System.out.println(EditDistance(s, t));
   }

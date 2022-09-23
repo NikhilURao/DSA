@@ -310,44 +310,46 @@ public class practice {
         }*/
  
 		
-		char c = (char) (65+2);
-		int ci = 'z';
-		System.out.println(c);
-		String A = "the sky   is  blue";
-		String [] Asplit = A.split("\\s+");
-		StringBuilder res = new StringBuilder(); 
-		for (int i=Asplit.length-1; i>=0; i--) {
-			res.append(Asplit[i]);
-			res.append(" ");
-		}
+//		char c = (char) (65+2);
+//		int ci = 'z';
+//		System.out.println(c);
+//		String A = "the sky   is  blue";
+//		String [] Asplit = A.split("\\s+");
+//		StringBuilder res = new StringBuilder(); 
+//		for (int i=Asplit.length-1; i>=0; i--) {
+//			res.append(Asplit[i]);
+//			res.append(" ");
+//		}
+//		
+//		StringBuilder SBA = new StringBuilder(A);
+//		int n=2;
+//		System.out.println(res.toString().trim());
+//		//System.out.println((SBA.substring((A.length()-(n%A.length())),A.length())+SBA.substring(0,A.length()-(n%A.length()))).toString());
+//		
+//		ArrayList<ArrayList<Integer>> arr = new ArrayList<ArrayList<Integer>>(5);
+//		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 1, 1, 1)));
+//		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 0, 1, 1)));
+//		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 0, 1, 1)));
+//		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 0, 0, 1)));
+//		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 0, 1, 1)));
+//		
+//		System.out.println(solve(arr));
+//		
+//		Scanner sc = new Scanner(System.in);
+//		int num = sc.nextInt();
+//		for (int i=0; i<n; i++) {
+//			int a = sc.nextInt();
+//			int b = sc.nextInt();
+//			int C = sc.nextInt();
+//			
+//			int and = a & b & C;
+//			int or = a | b | C;
+//			
+//			if (and == 0 && or == 1)
+//				System.out.println(1);
+//			else System.out.println(1);
 		
-		StringBuilder SBA = new StringBuilder(A);
-		int n=2;
-		System.out.println(res.toString().trim());
-		//System.out.println((SBA.substring((A.length()-(n%A.length())),A.length())+SBA.substring(0,A.length()-(n%A.length()))).toString());
-		
-		ArrayList<ArrayList<Integer>> arr = new ArrayList<ArrayList<Integer>>(5);
-		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 1, 1, 1)));
-		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 0, 1, 1)));
-		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 0, 1, 1)));
-		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 0, 0, 1)));
-		arr.add(new ArrayList<Integer>(Arrays.asList(0, 0, 0, 1, 1)));
-		
-		System.out.println(solve(arr));
-		
-		Scanner sc = new Scanner(System.in);
-		int num = sc.nextInt();
-		for (int i=0; i<n; i++) {
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-			int C = sc.nextInt();
-			
-			int and = a & b & C;
-			int or = a | b | C;
-			
-			if (and == 0 && or == 1)
-				System.out.println(1);
-			else System.out.println(1);
+		System.out.print(30%60);
 		}
 		
 
@@ -357,4 +359,4 @@ public class practice {
 		
 		
 }
-}
+

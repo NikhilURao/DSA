@@ -2,9 +2,11 @@
  * Multiple left rotations of the array
 Problem Description
 
-Given an array of integers A and multiple values in B which represents number of times array A needs to be left rotated.
+Given an array of integers A and multiple values in B which represents number of times array A needs to be left
+rotated.
 
-Find the rotated array for each value and return the result in the from of a matrix where i'th row represents the rotated array for the i'th value in B.
+Find the rotated array for each value and return the result in the from of a matrix where i'th row represents 
+the rotated array for the i'th value in B.
 
 
 
@@ -95,6 +97,8 @@ public class LeftRotateArray {
     		res.add(new ArrayList<Integer>(A.size()));
     	}
         Collections.fill(res, new ArrayList<Integer>());
+        
+        
         for(int j=0; j<B.size(); j++){
             int k = B.get(j)%(A.size());
             int b = A.size()-k;

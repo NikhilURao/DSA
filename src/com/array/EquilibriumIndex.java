@@ -6,7 +6,8 @@ You are given an array A of integers of size N.
 
 Your task is to find the equilibrium index of the given array
 
-Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes.
+Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the 
+sum of elements at higher indexes.
 
 NOTE:
 

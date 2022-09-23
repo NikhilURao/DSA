@@ -15,6 +15,7 @@ public class CheckArrayArithmeticProgression {
         }
         
         int fmin=Integer.MAX_VALUE;int smin=Integer.MAX_VALUE;
+        
         for (int i=0;i<A.size();i++){
             if (A.get(i)<fmin){
                 smin = fmin;

@@ -69,6 +69,7 @@ public class MergeIntervals {
 			Arrays.sort(intervals, new Comparator<int[]>(){
 				@Override
 				public int compare(int[] arg0, int[] arg1) {
+					// return arg0[0] - arg1[0];
 					return Integer.compare(arg0[0] ,arg1[0]);
 				}
 			});
@@ -113,7 +114,7 @@ public class MergeIntervals {
 		
 		for (int i=0; i<mergerIntervals.length; i++) {
 			for (int j=0; j<mergerIntervals[i].length; j++) {
-				System.out.print(mergerIntervals[i][j]+" ");
+				System.out.print(mergerIntervals[i][j]+",");
 			}
 			System.out.print("|");
 		}

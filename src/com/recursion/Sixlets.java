@@ -61,7 +61,6 @@ package com.recursion;
 
 import java.util.ArrayList;
 
-import javax.annotation.Generated;
 
 public class Sixlets {
 	

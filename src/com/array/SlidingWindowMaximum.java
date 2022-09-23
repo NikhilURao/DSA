@@ -2,7 +2,9 @@
  * Sliding Window Maximum
 Problem Description
 
-Given an array of integers A. There is a sliding window of size B which is moving from the very left of the array to the very right. You can only see the B numbers in the window. Each time the sliding window moves rightwards by one position. You have to find the maximum for each window.
+Given an array of integers A. There is a sliding window of size B which is moving from the very left of the array
+to the very right. You can only see the B numbers in the window. Each time the sliding window moves rightwards by
+one position. You have to find the maximum for each window.
 
 Return an array C, where C[i] is the maximum value in the array from A[i] to A[i+B-1].
 
@@ -103,7 +105,8 @@ public class SlidingWindowMaximum {
     	// for each window starting at index i find the maximum in that window
     	for (int i=0; i<n-B+1; i++) {
     		int j=i;
-    		// if the NGETR of the element at j is within the window then jump j to that index. Till the NGETR of an element is not within the current window
+    		// if the NGETR of the element at j is within the window then jump j to that index. 
+    		// Till the NGETR of an element is not within the current window
     		while (NGETR[j]<i+B && j<=n-B+1) {
     			j = NGETR[j];
     		}
