@@ -11,7 +11,7 @@ public class CountNodes
 			int lc = getCountsRec(root.left);
 			int rc= getCountsRec(root.right);
 			
-			return lc+1+rc;
+			return lc+rc+1;
 		}
 	}
 		

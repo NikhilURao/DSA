@@ -16,7 +16,7 @@ public class InorderTraversal {
 			System.out.print(root.data+" ");
 			InorderTraverseRec(root.right);
 		}
-	}
+	} 
 	
 	public void InorderTraverseIterative(BTNode root)
 	{

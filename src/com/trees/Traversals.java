@@ -1,3 +1,18 @@
+/* *
+ * 
+ * Inorder (Left, Root, Right)
+ * Preorder (Root, Left, Right)
+ * Postorder (Left, Right, Root)
+ * 
+ * TC: O(N) where N is the number of nodes in BT
+ * SC: If we don’t consider the size of the stack for function calls then O(1)
+ * otherwise O(h) where h is the height of the tree. 
+ * The height of the skewed tree is n (no. of elements) so the worst space 
+ * complexity is O(N) and the height is (Log N) for the balanced tree so 
+ * the best space complexity is O(Log N).
+ * 
+ * */
+
 package com.trees;
 import java.util.Queue;
 import java.util.LinkedList;
@@ -30,6 +45,20 @@ public class Traversals
 		}
 	}
 	
+	/*
+	 * Inorder (Left, Root, Right)
+	 * TC: O(N) N: number of nodes in BT.
+	 * SC: O(N) recursive stack space when the BT is skewed (worst case).
+	 */
+	
+	public void InOrderTraversalRec(BTNode root) {
+		if (root!=null) {
+			InOrderTraversal(root.left);
+			System.out.println(root.data);
+			InOrderTraversal(root.right);
+		}
+	}
+	
 	public void InOrderTraversal(BTNode root)
 	{
 		if (root != null)
@@ -53,6 +82,20 @@ public class Traversals
 		else 
 		{
 			return;
+		}
+	}
+	
+	/*
+	 * Preorder (Root, Left, Right)
+	 * TC: O(N) N: number of nodes in BT.
+	 * SC: O(N) recursive stack space when the BT is skewed (worst case).
+	 */
+	
+	public void PreOrderTraversalRec(BTNode root) {
+		if (root!=null) {
+			System.out.println(root.data);
+			PreOrderTraversalRec(root.left);
+			PreOrderTraversalRec(root.right);
 		}
 	}
 	
@@ -80,6 +123,20 @@ public class Traversals
 
 		}
 		
+	}
+	
+	/*
+	 * Postorder (Left, Right, Root)
+	 * TC: O(N) N: number of nodes in BT.
+	 * SC: O(N) recursive stack space when the BT is skewed (worst case).
+	 */
+	
+	public void PostOrderTraversalRec(BTNode root) {
+		if (root!=null) {
+			PostOrderTraversalRec(root.left);
+			PostOrderTraversalRec(root.right);
+			System.out.println(root.data);
+		}
 	}
 	
 	public void PostOrderTraversal(BTNode root)
@@ -131,5 +188,7 @@ public class Traversals
 		tvr.InOrderTraversal(root);
 		System.out.println();
 		tvr.PreOrderTraversal(root);
+		System.out.println();
+		tvr.PostOrderTraversal(root);
 	}
 }

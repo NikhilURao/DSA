@@ -1,4 +1,7 @@
 package com.trees;
+// Height of a BT is equal to the maximum of the height of left sub-tree and the height of the right sub-tree.
+// TC: O(N) where N is the number of nodes in BT
+// SC: O(N) worst case
 
 public class HeightOfBT 
 {
@@ -12,6 +15,8 @@ public class HeightOfBT
 		{
 			int lh = getHeight(root.left);
 			int rh = getHeight(root.right);
+			
+			// return Math.max(lh, rh) + 1; 
 			
 			return (lh > rh) ? lh+1 : rh+1;
 			
