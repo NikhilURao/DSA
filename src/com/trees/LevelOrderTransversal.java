@@ -2,33 +2,90 @@ package com.trees;
 
 import java.util.*;
 
+import java.util.Queue;
+
+
 
 public class LevelOrderTransversal {
 	
+	// prints the BT nodes level by level
 	public void LevelOrderTraverse_Iterative(BTNode root)
 	{
 		if (root != null)
 		{
-			Queue q = new Queue();
-			q.enqueue(root);
+			Queue<BTNode> q = new LinkedList<>();
+			q.add(root);
 			
 			while (!q.isEmpty())
 			{
-				BTNode temp = q.dequeue();
+				BTNode temp = q.poll();
 				System.out.print(temp.data+" ");
 				
 				if (temp.left != null)
 				{
-					q.enqueue(temp.left);
+					q.add(temp.left);
 				}
 				
 				if (temp.right != null)
 				{
-					q.enqueue(temp.right);
+					q.add(temp.right);
 				}
 			}
 		}
 	}
+	
+	// return list of lists
+	public ArrayList<ArrayList> LevelOrderTraversal(BTNode root){
+		
+		ArrayList<ArrayList> resLevel = new ArrayList<ArrayList>();
+		
+		if (root == null) return resLevel;
+		
+		else {
+			Queue<BTNode> queue = new LinkedList<BTNode>();
+			queue.add(root);
+			
+			while (!queue.isEmpty()) {
+				ArrayList<Integer> curLevelNodes = new ArrayList<>();
+				int size = queue.size();
+				
+				for (int i=0; i<size; i++) {
+					BTNode temp = queue.poll();
+					if(temp.left!=null) 
+						queue.add(temp.left);
+					if(temp.right!=null) 
+						queue.add(temp.right);
+					curLevelNodes.add(temp.data);
+				}
+				resLevel.add(curLevelNodes);
+			}
+			
+			return resLevel;
+		}
+		
+	}
+	
+	public ArrayList<ArrayList<Integer>> levelOrder(BTNode A) {
+
+	       Queue<BTNode> q = new LinkedList();
+	        ArrayList<ArrayList<Integer>> ans = new ArrayList<>(); // final return ArrayList
+	        q.add(A);  // adding root BTNode to q
+	        while(q.size() > 0){
+	            int N = q.size();
+	            ArrayList<Integer> temp = new ArrayList<>();  // creating a new ArrayList for every level
+	            for(int i=0; i<N; i++){  // iterating for each level
+	                BTNode t = q.peek();
+	                temp.add(t.data);
+	                q.remove();
+	                if(t.left != null) q.add(t.left);
+	                if(t.right != null) q.add(t.right);
+	                
+	            }
+	            ans.add(temp);  // adding temp ArrayList to ans ArrayList
+	        }
+	        return ans;
+	}
+    
 	
 
 	public static void main(String[] args) {
@@ -48,6 +105,24 @@ public class LevelOrderTransversal {
 		
 		LevelOrderTransversal lot = new LevelOrderTransversal();
 		lot.LevelOrderTraverse_Iterative(root);
+		System.out.println();
+		ArrayList<ArrayList> out = lot.LevelOrderTraversal(root);
+		
+		for (int i=0; i<out.size(); i++) {
+			for (int j=0; j<out.get(i).size(); j++) {
+				System.out.print(out.get(i).get(j) + " ");
+			}
+			System.out.print(" | ");
+		}
+		System.out.println();
+		ArrayList<ArrayList<Integer>> outls = lot.levelOrder(root);
+		
+		for (int i=0; i<out.size(); i++) {
+			for (int j=0; j<outls.get(i).size(); j++) {
+				System.out.print(outls.get(i).get(j) + " ");
+			}
+			System.out.print(" | ");
+		}
 		
 		/*
 		LinkedList<Integer> q = new LinkedList<Integer>();

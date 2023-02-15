@@ -150,22 +150,26 @@ public class Traversals
 			{
 				while (temp != null)
 				{
+					if (temp.right != null) {
+						s.push(temp.right);
+					}
 					s.push(temp);
 					temp = temp.left;
 				}
 				
 				if (s.isEmpty()) break;
 				
-				if (temp.right != null)
-				{
-					temp = s.peek();
-					temp = temp.right;
+				BTNode ptr = s.pop();
+				
+				if (ptr.right != s.peek()){
+					System.out.print(ptr.data+" ");
 				}
-				else
+					
+				else 
 				{
+					
 					temp = s.pop();
-					System.out.print(temp.data+" ");
-					temp = s.pop();
+					s.push(ptr);
 				}
 			}
 		}
