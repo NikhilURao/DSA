@@ -59,11 +59,13 @@ public class VerticalOrderTraversal {
     				if (curDistanceFromRoot < minLevel) minLevel = curDistanceFromRoot;
     				
     				if (temp.left!=null) {
-    					SimpleEntry<Integer, BTNode> curLvlPairLeft = new SimpleEntry<Integer, BTNode>(curDistanceFromRoot-1, temp.left);
+    					SimpleEntry<Integer, BTNode> curLvlPairLeft = 
+    							new SimpleEntry<Integer, BTNode>(curDistanceFromRoot-1, temp.left);
     		    		queue.add(curLvlPairLeft);
     				}
     				if (temp.right!=null) {
-    					SimpleEntry<Integer, BTNode> curLvlPairRight = new SimpleEntry<Integer, BTNode>(curDistanceFromRoot+1, temp.right);
+    					SimpleEntry<Integer, BTNode> curLvlPairRight = 
+    							new SimpleEntry<Integer, BTNode>(curDistanceFromRoot+1, temp.right);
     		    		queue.add(curLvlPairRight);
     				}
     				if (map.containsKey(curDistanceFromRoot)) {
@@ -72,7 +74,8 @@ public class VerticalOrderTraversal {
     					map.put(curDistanceFromRoot, curLvlLs);
     				}
     				else {
-    					ArrayList<Integer> curLvlLs = map.getOrDefault(curDistanceFromRoot, new ArrayList<Integer>());
+    					ArrayList<Integer> curLvlLs = map.getOrDefault(curDistanceFromRoot, 
+    							new ArrayList<Integer>());
     					curLvlLs.add(temp.data);
     					map.put(curDistanceFromRoot, curLvlLs);
     				}

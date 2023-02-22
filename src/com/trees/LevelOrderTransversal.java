@@ -117,7 +117,7 @@ public class LevelOrderTransversal {
 		System.out.println();
 		ArrayList<ArrayList<Integer>> outls = lot.levelOrder(root);
 		
-		for (int i=0; i<out.size(); i++) {
+		for (int i=0; i<outls.size(); i++) {
 			for (int j=0; j<outls.get(i).size(); j++) {
 				System.out.print(outls.get(i).get(j) + " ");
 			}
